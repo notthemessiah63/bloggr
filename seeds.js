@@ -16,31 +16,45 @@ var b1 = db.Blog.create({
   author: 'Dave Brown',
   body: 'I saw this bloke who was reading the times.. inside he was reading the Beano..'
   }, function(err, blog){
-    console.log('Blog created');
-    console.log(blog);
+    // console.log('Blog created');
+    // console.log(blog);
+    var c1 = db.Comment.create({
+      commentby: 'Steve',
+      commentbody: 'so funny'
+    }, function(err, comment){
+      blog.comments.push(comment);
+      blog.save();
+    });
+    var c2 = db.Comment.create({
+      commentby: 'Doreen',
+      commentbody: 'Oh my gosh'
+    }, function(err, comment){
+      blog.comments.push(comment);
+      blog.save();
+    });
+    // process.exit();
   });
+  // process.exit();  
 
-var b2 = db.Blog.create({
-  title: 'The dog and duck',
-  author: 'Mad bert',
-  body: 'A man walks into a bar.. said ouch!'
-  }, function(err, blog){
-    console.log('Blog created');
-    console.log(blog);
-    console.log('Database seeded');
-    // Once all records seeded we output a message then exit.
-    process.exit();
-  });
+// var b2 = db.Blog.create({
+//   title: 'The dog and duck',
+//   author: 'Mad bert',
+//   body: 'A man walks into a bar.. said ouch!'
+//   }, function(err, blog){
+//     var c2 = db.Comment.create({
+//       commentby: 'Daphney',
+//       commentbody: 'Oh my gosh'
+//     }, function(err, comment){
+//       blog.comments.push(comment);
+//       blog.save();
+//     });
+//     console.log('Blog created');
+//     console.log(blog);
+//     console.log('Database seeded');
+//     // Once all records seeded we output a message then exit.
+//     process.exit();
+//   });
 
-var c1 = db.Comment.create({
-  commentby: 'Steve',
-  commentbody: 'so funny'
-});
-
-var c2 = db.Comment.create({
-  commentby: 'Stuart',
-  commentbody: 'so mad'
-});
 
 
 

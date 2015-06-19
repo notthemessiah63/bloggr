@@ -17,7 +17,7 @@
     <form id="blog-form" class="form-inline">
       <input name="title" type="text" class="form-control" id="new-blog" placeholder="blog title">
       <input name="author" class="form-control" placeholder="Blog author">
-      <input name="blog-body" class="form-control" placeholder="Content">
+      <input name="body" class="form-control" placeholder="Content">
       <button type="submit" class="btn btn-default">Add blog</button>
     </form>
     <ul class="list-group" id="blog-ul"></ul>
@@ -27,9 +27,15 @@
   <li class="list-group-item">{{ title }}
     <span class="label label-default">{{ author }}</span>
     <span class="label label-default">{{ body }}</span>
+    <span class="label label-default">{{ comment }}</span>
     <button data-id="{{ _id }}" type="button" class="js-close close" aria-label="Close">
       <span aria-hidden="true">×</span>
     </button>
+    {{#comments}}
+      <div class="comment">
+        <p>{{commentbody}}<i> {{commentby}}</i></p>
+      </div>
+    {{/comments}}
   </li>
 </script>
 </html>

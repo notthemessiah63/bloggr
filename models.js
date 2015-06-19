@@ -13,7 +13,7 @@ var blogSchema = new Schema({
   title:  String,
   author: String,
   body:   String,
-  comment: [commentSchema]
+  comments: [commentSchema]
 });
 
 var Blog = mongoose.model('Blog', blogSchema);
